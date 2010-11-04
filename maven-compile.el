@@ -12,9 +12,9 @@
     (let ((dir (file-name-directory fn)))
       (while (and (not (file-exists-p (concat dir "/pom.xml")))
 		  (not (equal dir (file-truename (concat dir "/..")))))
-	(setq dir (file-exists-p (concat dir "/.."))))
-      (if (not (file-exists-p (concat "/pom.xml")))
+	(setq dir (file-truename (concat dir "/.."))))
+      (if (not (file-exists-p (concat dir "/pom.xml")))
 	  (message "No pom.xml found")
-	(compile (read-form-minibuffer "Command: "
-				       (concat "mvn -f" dir "/pom.xml test") nil nil
+	(compile (read-from-minibuffer "Command: "
+				       (concat "mvn -f " dir "/pom.xml test") nil nil
 				       'mvn-command-history))))))
