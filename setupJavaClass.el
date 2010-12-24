@@ -2,7 +2,7 @@
   "creates a java class skelton based on buffer-file name"
   (interactive "*")
   (let     ((target-file-name (buffer-file-name nil))
-	    (test-regexp    ".java$")
+	    (test-regexp    "\\([a-zA-Z][a-zA-Z0-9_]*\\).java$")
 	    )
     ;;(message "working on file %s " target-file-name))
 
