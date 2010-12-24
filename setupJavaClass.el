@@ -8,7 +8,8 @@
 
     ;;(message (regexp-quote "([A-Za-z][a-zA-Z0-9_]*).java$"))
     (if (string-match test-regexp target-file-name)
-	(message (format "found match in %s" target-file-name))
+	(message (format "found class in %s" 
+			 (match-string 1 target-file-name)))
       (message "not match found"))
 
 
