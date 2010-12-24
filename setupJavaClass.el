@@ -11,7 +11,8 @@
 		 (target-class-name (match-string 3 target-file-name) ) )
 	  (let ((target-package-name (replace-regexp-in-string "/" "." target-package-path nil nil nil)) 	
 		)
-	    (message (format "package %s;\n\n\n\npublic class %s { \n\n\n\n}" 
+	    (goto-char (point-min))
+	    (insert (format "package %s;\n\n\n\npublic class %s { \n\n\n\n}\n" 
 			     
 			     target-package-name target-class-name))
 	    ) 
