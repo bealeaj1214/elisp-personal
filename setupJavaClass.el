@@ -7,10 +7,11 @@
 
     ;;(message (regexp-quote "([A-Za-z][a-zA-Z0-9_]*).java$"))
     (if (string-match test-regexp target-file-name)
-	(let    ((target-package-name (match-string 2 target-file-name) ))
+	(let    ((target-package-path (match-string 2 target-file-name) )
+		 (target-class-name (match-string 3 target-file-name) ) )
 	(message (format "found class %s  - package directory - %s" 
-			 (match-string 3 target-file-name)
-			 target-package-name ))
+			 target-class-name
+			 target-package-path ))
 	)
 	
       (message "not match found"))
