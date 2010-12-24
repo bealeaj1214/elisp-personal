@@ -25,9 +25,11 @@
 
 (load-file "~/elisp/merge-helper.el")
 (load-file "~/elisp/maven-compile.el")
+(load-file "~/elisp/setupJavaClass.el")
 
-(add-to-list 'load-path "/Users/alanbeale/elisp/scala")
-(require 'scala-mode-auto)
+
+;;(add-to-list 'load-path "/Users/alanbeale/elisp/scala")
+;;(require 'scala-mode-auto)
 ;;(load-file "~/share/site-lisp/cscope.el")
 ;;;;(require 'cscope)
 (custom-set-variables
@@ -54,3 +56,19 @@
 (add-to-list
  'compilation-error-regexp-alist
  '("^\\[ERROR\\] \\(.*\\):\\[\\([0-9]+\\),\\([0-9]+\\)\\]" 1 2 3)) 
+
+
+(defun setup-scala-mode-support()
+  "set up scala mode support"
+  (add-to-list 'load-path "/Users/alanbeale/elisp/scala")
+  (require 'scala-mode-auto)
+)
+
+(defun test-and-set-scala-mode-support()
+  "test for existance of SCALA_HOME variable"
+  (if (getenv "SCALA_HOME")
+      (setup-scala-mode-support) )
+)
+
+
+(test-and-set-scala-mode-support)
