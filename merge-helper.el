@@ -3,7 +3,7 @@
 ;; primitive git helper functions
 (defun nuke-region-b()
   "Deletes region-b from merge result - git helper function."
-  (interactive)
+  (interactive "*")
   (merge-helper-nuke-region "====" ">>>>")
 )
 
@@ -13,7 +13,7 @@
 
 (defun nuke-region-a()
   "Deletes region-a from merge result - git helper function."
-  (interactive)
+  (interactive "*")
   (merge-helper-nuke-region "<<<<" "====")
 )
 
