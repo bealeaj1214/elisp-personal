@@ -58,6 +58,7 @@
  '("^\\[ERROR\\] \\(.*\\):\\[\\([0-9]+\\),\\([0-9]+\\)\\]" 1 2 3)) 
 
 
+
 (defun setup-scala-mode-support()
   "set up scala mode support"
   (add-to-list 'load-path "/Users/alanbeale/elisp/scala")
@@ -72,3 +73,8 @@
 
 
 (test-and-set-scala-mode-support)
+
+(load-file "~/elisp/groovy-mode.el")
+(autoload 'groovy-mode "groovy-mode" "Groovy editing mode." t)
+(add-to-list 'auto-mode-alist '("\.groovy$" . groovy-mode))
+(add-to-list 'auto-mode-alist '("\.gradle$" . groovy-mode))
