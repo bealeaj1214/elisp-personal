@@ -42,6 +42,24 @@
   (base-setup-java-style-class "java" )
   )
 
+(defun custom-java-mode-setup-hook()
+  "java mode hook to call setup-java-class"
+  (interactive "*")
+  (if (= (point-min) (point-max))
+      (setup-java-class))
+
+)
+
+(defun custom-groovy-mode-setup-hook()
+  "groovy-mode hook to call setup-groovy-class"
+  (interactive "*")
+  (if (= (point-min) (point-max))
+      (setup-groovy-class))
+
+)
+
+;;(add-hook 'java-mode-hook 'custom-java-mode-setup-hook)
+;;(add-hook 'groovy-mode-hook 'custom-groovy-mode-setup-hook)
 
 ;; (defun show-buffer-file-name()
 ;;   "silly function to send buffer-file-name to message buffer"
