@@ -16,7 +16,7 @@
       (if (not (file-exists-p (concat dir "/build.gradle")))
 	  (message "No build.gradle found")
 	(compile (read-from-minibuffer "Command: "
-				       (concat "cd " dir " && gradle build") nil nil
+				       (concat "cd " dir " && gradle -q build") nil nil
 				       'gradle-command-history))))))
 
 
