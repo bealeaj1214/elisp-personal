@@ -16,5 +16,13 @@
       (if (not (file-exists-p (concat dir "/build.gradle")))
 	  (message "No build.gradle found")
 	(compile (read-from-minibuffer "Command: "
-                                         				       (concat "cd " dir " && gradle build") nil nil
+				       (concat "cd " dir " && gradle build") nil nil
 				       'gradle-command-history))))))
+
+
+;;  compilation-error-regexp for maven and gradle
+;; external reference http://praveen.kumar.in/2011/03/09/making-gnu-emacs-detect-custom-error-messages-a-maven-example/
+
+;;(add-to-list
+;; 'compilation-error-regexp-alist
+;; '("^\\[ERROR\\] \\(.*\\):\\[\\([0-9]+\\),\\([0-9]+\\)\\]" 1 2 3)) 
